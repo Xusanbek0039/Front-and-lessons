@@ -3,35 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ID va Class tushunchasi</title>
     <style>
+        /* ID orqali uslublar */
         #qizil {
             color: red;
         }
+
         #yashil {
-            color: rgb(189, 233, 12);
+            color: green;
         }
-        #orqa{
+
+        #orqa {
             background-color: burlywood;
         }
+
+        /* Class orqali uslublar */
+        .katta {
+            font-size: 32px;
+        }
+
         .namuna {
-            color: chartreuse;
+            color: blue;
         }
-        .katta{
-            font-size: 50px;
-        }
-        .orqa{
+
+        .orqa {
             background-color: yellow;
+        }
+
+        .markaz {
+            text-align: center;
+        }
+
+        /* Umumiy uslub */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        img {
+            width: 400px;
+            margin-top: 10px;
+        }
+
+        .blok {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-class sinf degan manoni beradi va bajarish joylari bir nechta tegga bittada style berish ishlatilinadi.
 <body>
-    <a href="#about">Biz haqimizda qismiga o'tish</a>
-    <h1>ID attributlari Class haqida </h1>
-    <p id="yashil">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio fugiat repellat! Doloremque explicabo sequi quis ad iste dignissimos veritatis sunt, dicta libero sint hic obcaecati! Rem quibusdam dolores sint!</p>
-    <p class="katta">Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam, veritatis provident expedita voluptate vero? Esse pariatur, illum porro optio sunt officiis impedit facere ipsam consequatur in unde iste deleniti.</p>
-    <img id="about"style="width: 500px;" src="/06-dars/image.png" alt="">
-    <p class="namuna katta orqa">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi molestias adipisci quaerat veritatis omnis modi tenetur ea incidunt. Quidem ducimus aut ut. Id eveniet consectetur dicta, minus totam nam aspernatur.</p>
+
+    <h1>ID va Class atributlari</h1>
+
+    <p class="blok" id="qizil">Bu paragrafga <strong>ID "qizil"</strong> berilgan va u faqat bitta elementga taalluqli.</p>
+
+    <p class="blok" id="yashil">Bu esa <strong>ID "yashil"</strong> bilan, ya'ni yashil rangda.</p>
+
+    <p class="blok katta">Bu paragraf <strong>class="katta"</strong> bilan yozilgan, shuning uchun matni katta ko‘rinmoqda.</p>
+
+    <p class="blok namuna">Bu esa <strong>class="namuna"</strong>, shuning uchun rang ko‘k.</p>
+
+    <p class="blok katta orqa markaz">
+        Bu paragrafga bir nechta classlar berilgan: <br>
+        <code>katta</code>, <code>orqa</code>, <code>markaz</code> — shuning uchun matn katta, sariq fonli va markazda joylashgan.
+    </p>
+
+    <a href="#haqida">Rasmdagi "Biz haqimizda" bo‘limiga o'tish</a><br>
+
+    <img id="haqida" src="/06-dars/image.png" alt="Biz haqimizda rasmi">
+
+    <p class="blok" id="orqa">Bu paragrafga <strong>ID "orqa"</strong> berilgan, u fon rangini o‘zgartiradi.</p>
+
 </body>
 </html>

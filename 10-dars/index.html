@@ -1,11 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Block va Inline elementlar - IT Creative</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .block {
+            background-color: #cce5ff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #3399ff;
+        }
+        .inline {
+            background-color: #d4edda;
+            padding: 3px 8px;
+            margin-right: 5px;
+            border: 1px solid #28a745;
+        }
+        .example {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <h1>Block va Inline elementlar</h1>
+
+    <h2>Block element nima?</h2>
+    <p class="block">
+        Block (blok) elementlar doimo yangi qatordan boshlanadi va to‘liq kenglikni egallaydi. 
+        Ya'ni, ularni yonma-yon qo‘yib bo‘lmaydi.
+    </p>
+    <p class="block">
+        Block elementlarga misollar: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;-&lt;h6&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>
+    </p>
+
+    <h2>Inline element nima?</h2>
+    <p>
+        Inline (ichki) elementlar esa yangi qatordan boshlanmaydi, ular faqat o‘z kontenti joy olgan joyni egallaydi.
+    </p>
+    <p>
+        Inline elementlarga misollar: 
+        <span class="inline">&lt;span&gt;</span>
+        <span class="inline">&lt;a&gt;</span>
+        <span class="inline">&lt;strong&gt;</span>
+        <span class="inline">&lt;em&gt;</span>
+    </p>
+
+    <div class="example">
+        <h2>Block elementlar misoli</h2>
+        <div class="block">Bu birinchi block element</div>
+        <div class="block">Bu ikkinchi block element</div>
+    </div>
+
+    <div class="example">
+        <h2>Inline elementlar misoli</h2>
+        <span class="inline">Bu inline 1</span>
+        <span class="inline">Bu inline 2</span>
+        <span class="inline">Bu inline 3</span>
+    </div>
+
+    <div class="example">
+        <h2>Block va Inline birga</h2>
+        <p class="block">
+            Bu block element ichida <span class="inline">inline element</span> ishlatilmoqda.
+        </p>
+    </div>
+
 </body>
 </html>
