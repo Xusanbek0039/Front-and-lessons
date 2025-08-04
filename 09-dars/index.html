@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID va Class tushunchasi</title>
+    <style>
+        /* ID orqali uslublar */
+        #qizil {
+            color: red;
+        }
+
+        #yashil {
+            color: green;
+        }
+
+        #orqa {
+            background-color: burlywood;
+        }
+
+        /* Class orqali uslublar */
+        .katta {
+            font-size: 32px;
+        }
+
+        .namuna {
+            color: blue;
+        }
+
+        .orqa {
+            background-color: yellow;
+        }
+
+        .markaz {
+            text-align: center;
+        }
+
+        /* Umumiy uslub */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        img {
+            width: 400px;
+            margin-top: 10px;
+        }
+
+        .blok {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ID va Class atributlari</h1>
+
+    <p class="blok" id="qizil">Bu paragrafga <strong>ID "qizil"</strong> berilgan va u faqat bitta elementga taalluqli.</p>
+
+    <p class="blok" id="yashil">Bu esa <strong>ID "yashil"</strong> bilan, ya'ni yashil rangda.</p>
+
+    <p class="blok katta">Bu paragraf <strong>class="katta"</strong> bilan yozilgan, shuning uchun matni katta ko‘rinmoqda.</p>
+
+    <p class="blok namuna">Bu esa <strong>class="namuna"</strong>, shuning uchun rang ko‘k.</p>
+
+    <p class="blok katta orqa markaz">
+        Bu paragrafga bir nechta classlar berilgan: <br>
+        <code>katta</code>, <code>orqa</code>, <code>markaz</code> — shuning uchun matn katta, sariq fonli va markazda joylashgan.
+    </p>
+
+    <a href="#haqida">Rasmdagi "Biz haqimizda" bo‘limiga o'tish</a><br>
+
+    <img id="haqida" src="/06-dars/image.png" alt="Biz haqimizda rasmi">
+
+    <p class="blok" id="orqa">Bu paragrafga <strong>ID "orqa"</strong> berilgan, u fon rangini o‘zgartiradi.</p>
+
+</body>
+</html>
