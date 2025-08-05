@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML class atributi - IT Creative</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .info-box {
+      background-color: #e6f0ff;
+      border-left: 5px solid #3399ff;
+      padding: 10px;
+      margin: 20px 0;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .rasm {
+      display: block;
+      margin: 10px auto;
+      width: 300px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #999;
+      text-align: left;
+    }
+    th {
+      background-color: #dfefff;
+    }
+    .code {
+      background-color: #f0f0f0;
+      padding: 5px 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML <code>class</code> atributi</h1>
+
+  <div class="info-box">
+    <p><strong>Class</strong> bu HTML elementga beriladigan nom bo‘lib, CSS yoki JavaScript orqali bu elementni boshqarish imkonini beradi.</p>
+  </div>
+
+  <h2>1. Class atributi sintaksisi</h2>
+  <p>Quyidagi misolda paragrafga <span class="highlight">"qizil"</span> nomli class berilgan:</p>
+
+  <div class="code">
+    &lt;p class="qizil"&gt;Bu matn qizil bo‘ladi&lt;/p&gt;
+  </div>
+
+  <img src="/06-dars/image.png" alt="Class misoli" class="rasm">
+
+  <h2>2. CSS bilan ishlatish</h2>
+  <p>CSS da classga murojaat qilish uchun <span class="highlight">nuqta (.)</span> belgisi ishlatiladi:</p>
+
+  <div class="code">
+    .qizil { color: red; }
+  </div>
+
+  <h2>3. Bir nechta elementga bir xil class</h2>
+  <p>Quyida ikkita elementga bir xil class berilgan:</p>
+
+  <div class="code">
+    &lt;h2 class="qizil"&gt;Sarlavha&lt;/h2&gt; <br>
+    &lt;p class="qizil"&gt;Bu ham qizil matn&lt;/p&gt;
+  </div>
+
+  <img src="/06-dars/image.png" alt="Bir nechta element" class="rasm">
+
+  <h2>4. Bitta elementga bir nechta class</h2>
+  <p>HTML element bir nechta classga ega bo‘lishi mumkin:</p>
+
+  <div class="code">
+    &lt;p class="qizil katta"&gt;Bu katta va qizil matn&lt;/p&gt;
+  </div>
+
+  <h2>5. class va id farqi</h2>
+  <p>Quyidagi jadval orqali `class` va `id` atributlari o‘rtasidagi farqni ko‘rib chiqamiz:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Xususiyat</th>
+        <th>class</th>
+        <th>id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Qayta ishlatilishi</td>
+        <td>Ha, bir nechta elementda</td>
+        <td>Yo‘q, faqat bitta elementda</td>
+      </tr>
+      <tr>
+        <td>CSS belgisi</td>
+        <td>.classNomi</td>
+        <td>#idNomi</td>
+      </tr>
+      <tr>
+        <td>JavaScript bilan ishlatish</td>
+        <td>document.querySelector('.classNomi')</td>
+        <td>document.getElementById('idNomi')</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>6. Yakuniy misol (HTML + CSS)</h2>
+
+  <div class="code">
+    &lt;style&gt;<br>
+    &nbsp;.qizil { color: red; } <br>
+    &nbsp;.katta { font-size: 24px; } <br>
+    &lt;/style&gt; <br><br>
+
+    &lt;p class="qizil katta"&gt;Bu katta va qizil matn&lt;/p&gt;
+  </div>
+
+  <img src="/06-dars/image.png" alt="Yakuniy class misol" class="rasm">
+
+  <div class="info-box">
+    <strong>Xulosa:</strong>  
+    <p>`class` atributi yordamida siz sahifadagi ko‘plab elementlarni boshqarishingiz, uslublar berishingiz va interaktivlik qo‘shishingiz mumkin.</p>
+  </div>
+
+</body>
+</html>
