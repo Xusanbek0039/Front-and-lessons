@@ -1,22 +1,37 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Creative | div hamda span bilan ishlash</title>
-</head>
-<body>
-    <h1>div va span bilan amaliy dars</h1>
-    <p>Quyida div va span elementlari bilan amaliy misol keltirilgan:</p>
-    
-    <div style="background-color: lightgray; padding: 15px; margin-bottom: 10px;">
-        <h2>Div misoli</h2>
-        <p>Bu <span style="color: blue;">div</span> elementi ichida joylashgan matn.</p>
-        <p>Div elementi blok darajasidagi element bo'lib, u kenglikni to'liq egallaydi.</p>
-    </div>
+    <title>div hamda span teglari haqida | IT Creative 11-dars #11</title>
+    <style>
+        .myclass {
+            color : red;
+        }
+        #myid{
+            background-color: wheat;
+        }
+        .border-class{
+            border: 2px solid black;
+            border-radius: 30px;
+            padding: 20px;       
+        }
 
-    <p>Bu <span style="font-weight: bold; color: green;">span</span> elementi esa matn ichida ishlatiladi va inline darajasida joylashadi.</p>
-    
-    <p>CSS yordamida <span style="text-decoration: underline;">div</span> va <span style="text-decoration: underline;">span</span> elementlarini uslubiy jihatdan o'zgartirish mumkin.</p>
+        .katta{
+            font-size: 25px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<!-- div yangi qatordan davom etadi, span esa o'zidan keyingi matnni yangi qatordan boshlamaydi. -->
+<body>
+
+    <div class="myclass border-class" id="myid">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis distinctio consectetur incidunt doloremque commodi placeat, quam ut sunt minus, fuga suscipit officia reiciendis iure libero, hic neque id ipsam laudantium.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam deleniti, aperiam quidem similique eius quibusdam doloremque dolorem laboriosam ab, tempora eveniet delectus quam soluta mollitia ipsa! Et odit iste <span class="katta">error!</span></p>
+    </div>
+    <div style="color: red;">Assalom alekum </div>
+
 </body>
 </html>
