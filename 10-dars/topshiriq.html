@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Block vs Inline - Amaliy Misol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: center;
+        }
+        span.highlight {
+            background-color: yellow;
+            padding: 2px 5px;
+        }
+        .example-block {
+            background-color: #e0f7fa;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Block va Inline elementlar - Amaliy misol</h1>
+
+    <!-- Block element: table -->
+    <div class="example-block">
+        <h2>📊 Block Element: Jadval</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fan</th>
+                    <th>Bahosi</th>
+                    <th>Izoh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Matematika</td>
+                    <td>5</td>
+                    <td><span class="highlight">A'lo!</span></td>
+                </tr>
+                <tr>
+                    <td>Fizika</td>
+                    <td>4</td>
+                    <td><span class="highlight">Yaxshi</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Inline elementlar: span, sub, sup -->
+    <div class="example-block">
+        <h2>✍️ Inline Elementlar Misoli</h2>
+        <p>
+            Bu <span class="highlight">span</span> elementi faqat matn ichida ishlaydi va block element emas.
+        </p>
+        <p>
+            Formulalar:
+            H<sub>2</sub>O (suv formulasi),
+            X<sup>2</sup> + Y<sup>2</sup> = Z<sup>2</sup> (Pifagor teoremasi)
+        </p>
+    </div>
+
+</body>
+</html>
