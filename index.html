@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kirish — Login</title>
+  <title>Kirish — Login (Pro versiya)</title>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    /* Yengil maxsus styling */
     body {
       min-height: 100vh;
       display: flex;
@@ -17,21 +18,32 @@
       justify-content: center;
       background: linear-gradient(120deg,#eef2ff 0%, #e6fffa 100%);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      transition: background 0.3s, color 0.3s;
     }
-
+    .dark-mode {
+      background: linear-gradient(120deg,#111827 0%, #1f2937 100%);
+      color: #f3f4f6;
+    }
     .card {
       border: 0;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(18, 38, 63, 0.08);
+      transition: background 0.3s, color 0.3s;
     }
-
+    .dark-mode .card {
+      background: #1f2937;
+      color: #f3f4f6;
+    }
     .form-control:focus {
       box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.12);
     }
-
-    /* Kichik ekranda kartani biroz kengroq qilish */
-    @media (max-width: 420px) {
-      .auth-card { margin: 1rem; }
+    .strength-meter {
+      height: 5px;
+      margin-top: 4px;
+    }
+    .spinner-border {
+      width: 1rem;
+      height: 1rem;
     }
   </style>
 </head>
@@ -39,157 +51,159 @@
   <main class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6 col-xl-5">
-        <div class="card auth-card overflow-hidden">
-          <div class="row g-0">
-            <!-- Chap tomon: dekor / logo -->
-            <div class="col-12 p-4 text-center bg-white">
-              <a href="#" class="d-inline-block mb-3">
-                <!-- Oddiy SVG logo -->
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect width="24" height="24" rx="6" fill="#6366F1"></rect>
-                  <path d="M7 13l3 3 7-8" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <h4 class="mb-1">Tizimga kirish</h4>
-              <p class="text-muted small mb-0">Hisobingiz orqali davom eting</p>
+        <div class="card auth-card overflow-hidden p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">🔐 Tizimga kirish</h4>
+            <!-- Dark mode toggle -->
+            <button id="themeToggle" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+          </div>
+          <p class="text-muted small">Hisobingiz orqali davom eting</p>
+
+          <form id="loginForm" class="needs-validation" novalidate>
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@misol.uz" required>
+              </div>
+              <div class="invalid-feedback">Haqiqiy email kiriting.</div>
             </div>
 
-            <!-- Form -->
-            <div class="col-12 p-4">
-              <form id="loginForm" class="needs-validation" novalidate action="/login" method="POST">
-                <!-- Email -->
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email manzilingiz</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="name@misol.uz" required>
-                  <div class="invalid-feedback">
-                    Iltimos haqiqiy email kiriting.
-                  </div>
-                </div>
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Parol</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i id="toggleIcon" class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback">Parol kamida 6 belgi bo‘lsin.</div>
+              <!-- Strength meter -->
+              <div class="progress strength-meter">
+                <div id="strengthBar" class="progress-bar" role="progressbar"></div>
+              </div>
+            </div>
 
-                <!-- Password with show/hide -->
-                <div class="mb-3">
-                  <label for="password" class="form-label d-flex justify-content-between">
-                    <span>Parol</span>
-                    <a href="#" class="small">Parolni unutdingiz?</a>
-                  </label>
-                  <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password" minlength="6" placeholder="Kamida 6 belgidan iborat" required>
-                    <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Parolni ko'rsatish/berkitish">
-                      👁
-                    </button>
-                    <div class="invalid-feedback">
-                      Parol kamida 6 belgidan iborat bo‘lishi kerak.
-                    </div>
-                  </div>
-                </div>
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="confirm" class="form-label">Parolni tasdiqlash</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                <input type="password" class="form-control" id="confirm" required>
+              </div>
+              <div class="invalid-feedback">Parol mos kelmadi.</div>
+            </div>
 
-                <!-- Remember me -->
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                  <label class="form-check-label" for="remember">Eslab qolish</label>
-                </div>
+            <!-- Remember me -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="remember">
+              <label class="form-check-label" for="remember">Eslab qolish</label>
+            </div>
 
-                <!-- Server-side error placeholder -->
-                <div id="serverError" class="alert alert-danger d-none" role="alert"></div>
+            <!-- Submit -->
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <span id="btnText">Kirish</span>
+                <span id="btnLoader" class="spinner-border spinner-border-sm d-none"></span>
+              </button>
+            </div>
 
-                <!-- Submit -->
-                <div class="d-grid mb-3">
-                  <button type="submit" class="btn btn-primary btn-lg">Kirish</button>
-                </div>
+            <div class="text-center small text-muted">
+              Yoki ijtimoiy tarmoqlar orqali
+              <div class="d-flex gap-2 justify-content-center mt-2">
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-google"></i> Google
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-facebook"></i> Facebook
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm">
+                  <i class="bi bi-github"></i> GitHub
+                </button>
+              </div>
+            </div>
 
-                <div class="text-center">
-                  <p class="small text-muted mb-0">Yoki ijtimoiy tarmoqlar orqali</p>
-                  <div class="d-flex gap-2 justify-content-center mt-2">
-                    <button type="button" class="btn btn-outline-secondary btn-sm">Google</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">Facebook</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">Github</button>
-                  </div>
-                </div>
-
-                <p class="text-center small text-muted mt-3 mb-0">
-                  Hisobingiz yo'qmi? <a href="#">Ro'yxatdan o'tish</a>
-                </p>
-              </form>
-            </div> <!-- /form col -->
-          </div>
+            <p class="text-center small mt-3 mb-0">
+              Hisobingiz yo‘qmi? <a href="#">Ro‘yhatdan o‘tish</a>
+            </p>
+          </form>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Bootstrap JS & dependencies (Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Show / hide password tugmasi
-    document.getElementById('togglePassword').addEventListener('click', function() {
+    // Dark mode toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Show/hide password
+    document.getElementById('togglePassword').addEventListener('click', function () {
       const pwd = document.getElementById('password');
+      const icon = document.getElementById('toggleIcon');
       if (pwd.type === 'password') {
         pwd.type = 'text';
-        this.textContent = '🙈';
+        icon.className = 'bi bi-eye-slash';
       } else {
         pwd.type = 'password';
-        this.textContent = '👁';
+        icon.className = 'bi bi-eye';
       }
     });
 
-    // Bootstrap form validation (client-side)
-    (function () {
-      const form = document.getElementById('loginForm');
-      form.addEventListener('submit', function (event) {
-        // To prevent default submission for demo purposes — remove in production
-        // event.preventDefault();
+    // Password strength meter
+    document.getElementById('password').addEventListener('input', function () {
+      const val = this.value;
+      const bar = document.getElementById('strengthBar');
+      let strength = 0;
+      if (val.length >= 6) strength += 1;
+      if (/[A-Z]/.test(val)) strength += 1;
+      if (/[0-9]/.test(val)) strength += 1;
+      if (/[^A-Za-z0-9]/.test(val)) strength += 1;
 
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        } else {
-          // Form valid: you can allow submit or do AJAX here.
-          // Example: prevent default and send fetch to backend:
-          // event.preventDefault();
-          // submitLoginWithFetch();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    })();
+      bar.style.width = (strength * 25) + '%';
+      bar.className = 'progress-bar';
+      if (strength === 1) bar.classList.add('bg-danger');
+      if (strength === 2) bar.classList.add('bg-warning');
+      if (strength === 3) bar.classList.add('bg-info');
+      if (strength === 4) bar.classList.add('bg-success');
+    });
 
-    // Misol uchun server-side xatoni ko'rsatish funktsiyasi
-    function showServerError(message) {
-      const el = document.getElementById('serverError');
-      el.textContent = message;
-      el.classList.remove('d-none');
-    }
-
-    // Agar AJAX yuborishga misol kerak bo'lsa:
-    async function submitLoginWithFetch() {
-      const data = {
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        remember: document.getElementById('remember').checked
-      };
-
-      try {
-        const res = await fetch('/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            // CSRF token qo'shish kerak bo'lsa shu joyda yuboring
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (!res.ok) {
-          const err = await res.json();
-          showServerError(err.message || 'Kirishda xato yuz berdi.');
-          return;
-        }
-
-        // Muvaffaqiyat: yo'naltirish
-        window.location.href = '/dashboard';
-      } catch (e) {
-        showServerError('Serverga ulanib bo‘lmadi. Internetni tekshiring.');
+    // Form validation + confirm password check
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', function (event) {
+      const pwd = document.getElementById('password');
+      const confirm = document.getElementById('confirm');
+      if (pwd.value !== confirm.value) {
+        confirm.setCustomValidity('Passwords do not match');
+      } else {
+        confirm.setCustomValidity('');
       }
-    }
+
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        // Show loader
+        document.getElementById('btnText').classList.add('d-none');
+        document.getElementById('btnLoader').classList.remove('d-none');
+        // Simulyatsiya qilish: 2 sek so‘ng yuboriladi
+        event.preventDefault();
+        setTimeout(() => {
+          alert('Muvaffaqiyatli kirdingiz!');
+          document.getElementById('btnText').classList.remove('d-none');
+          document.getElementById('btnLoader').classList.add('d-none');
+        }, 2000);
+      }
+
+      form.classList.add('was-validated');
+    });
   </script>
 </body>
 </html>
