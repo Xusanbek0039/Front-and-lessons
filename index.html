@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kirish — Login</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Yengil maxsus styling */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg,#eef2ff 0%, #e6fffa 100%);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .card {
+      border: 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(18, 38, 63, 0.08);
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.12);
+    }
+
+    /* Kichik ekranda kartani biroz kengroq qilish */
+    @media (max-width: 420px) {
+      .auth-card { margin: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card auth-card overflow-hidden">
+          <div class="row g-0">
+            <!-- Chap tomon: dekor / logo -->
+            <div class="col-12 p-4 text-center bg-white">
+              <a href="#" class="d-inline-block mb-3">
+                <!-- Oddiy SVG logo -->
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect width="24" height="24" rx="6" fill="#6366F1"></rect>
+                  <path d="M7 13l3 3 7-8" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <h4 class="mb-1">Tizimga kirish</h4>
+              <p class="text-muted small mb-0">Hisobingiz orqali davom eting</p>
+            </div>
+
+            <!-- Form -->
+            <div class="col-12 p-4">
+              <form id="loginForm" class="needs-validation" novalidate action="/login" method="POST">
+                <!-- Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email manzilingiz</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="name@misol.uz" required>
+                  <div class="invalid-feedback">
+                    Iltimos haqiqiy email kiriting.
+                  </div>
+                </div>
+
+                <!-- Password with show/hide -->
+                <div class="mb-3">
+                  <label for="password" class="form-label d-flex justify-content-between">
+                    <span>Parol</span>
+                    <a href="#" class="small">Parolni unutdingiz?</a>
+                  </label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" minlength="6" placeholder="Kamida 6 belgidan iborat" required>
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Parolni ko'rsatish/berkitish">
+                      👁
+                    </button>
+                    <div class="invalid-feedback">
+                      Parol kamida 6 belgidan iborat bo‘lishi kerak.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Remember me -->
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                  <label class="form-check-label" for="remember">Eslab qolish</label>
+                </div>
+
+                <!-- Server-side error placeholder -->
+                <div id="serverError" class="alert alert-danger d-none" role="alert"></div>
+
+                <!-- Submit -->
+                <div class="d-grid mb-3">
+                  <button type="submit" class="btn btn-primary btn-lg">Kirish</button>
+                </div>
+
+                <div class="text-center">
+                  <p class="small text-muted mb-0">Yoki ijtimoiy tarmoqlar orqali</p>
+                  <div class="d-flex gap-2 justify-content-center mt-2">
+                    <button type="button" class="btn btn-outline-secondary btn-sm">Google</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">Facebook</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">Github</button>
+                  </div>
+                </div>
+
+                <p class="text-center small text-muted mt-3 mb-0">
+                  Hisobingiz yo'qmi? <a href="#">Ro'yxatdan o'tish</a>
+                </p>
+              </form>
+            </div> <!-- /form col -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS & dependencies (Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Show / hide password tugmasi
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const pwd = document.getElementById('password');
+      if (pwd.type === 'password') {
+        pwd.type = 'text';
+        this.textContent = '🙈';
+      } else {
+        pwd.type = 'password';
+        this.textContent = '👁';
+      }
+    });
+
+    // Bootstrap form validation (client-side)
+    (function () {
+      const form = document.getElementById('loginForm');
+      form.addEventListener('submit', function (event) {
+        // To prevent default submission for demo purposes — remove in production
+        // event.preventDefault();
+
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          // Form valid: you can allow submit or do AJAX here.
+          // Example: prevent default and send fetch to backend:
+          // event.preventDefault();
+          // submitLoginWithFetch();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+
+    // Misol uchun server-side xatoni ko'rsatish funktsiyasi
+    function showServerError(message) {
+      const el = document.getElementById('serverError');
+      el.textContent = message;
+      el.classList.remove('d-none');
+    }
+
+    // Agar AJAX yuborishga misol kerak bo'lsa:
+    async function submitLoginWithFetch() {
+      const data = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        remember: document.getElementById('remember').checked
+      };
+
+      try {
+        const res = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // CSRF token qo'shish kerak bo'lsa shu joyda yuboring
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          showServerError(err.message || 'Kirishda xato yuz berdi.');
+          return;
+        }
+
+        // Muvaffaqiyat: yo'naltirish
+        window.location.href = '/dashboard';
+      } catch (e) {
+        showServerError('Serverga ulanib bo‘lmadi. Internetni tekshiring.');
+      }
+    }
+  </script>
+</body>
+</html>
