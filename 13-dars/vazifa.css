@@ -1,0 +1,17 @@
+h1 {
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
+button {
+    border: none;
+    background-color: aqua;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+button img {
+    width: 100%;
+}
