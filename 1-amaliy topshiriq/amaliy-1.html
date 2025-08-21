@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Sahifa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #007bff;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Ro‘yxatdan o‘tish</h2>
+    <form>
+      <div class="form-group">
+        <label>Ismingiz</label>
+        <input type="text" placeholder="Ism kiriting">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Email kiriting">
+      </div>
+      <div class="form-group">
+        <label>Parol</label>
+        <input type="password" placeholder="Parol kiriting">
+      </div>
+      <button type="submit" class="btn">Yuborish</button>
+    </form>
+  </div>
+</body>
+</html>
