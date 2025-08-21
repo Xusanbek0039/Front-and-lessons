@@ -1,0 +1,86 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Kursi — Soddalashtirilgan</title>
+  <style>
+    body { background-color:#f5f5f5; color:#333; font-family: Arial, sans-serif; margin:0; padding:20px; }
+    .container { max-width:800px; margin:0 auto; background:#fff; padding:20px; border:1px solid #ddd; }
+    header, section, footer { margin-bottom:20px; }
+    h1,h2 { color:#2563eb; }
+    .badges span { display:inline-block; background:#eee; border:1px solid #ccc; padding:4px 8px; margin-right:5px; }
+    table { width:100%; border-collapse:collapse; margin-top:10px; }
+    th,td { border:1px solid #ccc; padding:8px; }
+    form { margin-top:10px; }
+    label { display:block; margin-top:10px; }
+    input, select, textarea { width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; }
+    input[type="submit"] { width:auto; background:#2563eb; color:#fff; cursor:pointer; }
+    input[type="submit"]:hover { background:#1e40af; }
+    footer { text-align:center; font-size:14px; color:#777; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><strong>Frontend</strong> kursiga <em>ro‘yxatdan</em> o‘ting!</h1>
+      <p class="badges">
+        <span><b>HTML</b></span>
+        <span><i>CSS</i></span>
+        <span><u>JS</u></span>
+      </p>
+    </header><section>
+  <h2>Kurs haqida</h2>
+  <p>Bu kurs orqali siz <strong>HTML</strong>, <em>CSS</em> va <b>JavaScript</b> asoslarini o‘rganasiz.</p>
+  <div style="border:1px solid #ccc; padding:10px; margin-top:10px;">Bu <b>div</b> block elementi. Ichida esa <span style="color:red">span</span> inline element.</div>
+</section>
+
+<section>
+  <h2>Kurs jadvali</h2>
+  <table>
+    <tr>
+      <th>Modul</th>
+      <th>Mavzu</th>
+      <th>Sana</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>HTML</td>
+      <td>10-sentabr</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>CSS</td>
+      <td>12-sentabr</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Ro‘yxatdan o‘tish</h2>
+  <form>
+    <label>Ism:
+      <input type="text" placeholder="Ismingiz" required>
+    </label>
+    <label>Email:
+      <input type="email" placeholder="Email" required>
+    </label>
+    <label>Kursni tanlang:
+      <select>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+      </select>
+    </label>
+    <label>Xabar:
+      <textarea rows="3" placeholder="Savolingizni yozing..."></textarea>
+    </label>
+    <input type="submit" value="Yuborish">
+  </form>
+</section>
+
+<footer>
+  <small>&copy; 2025 Frontend kursi. Barcha huquqlar himoyalangan.</small>
+</footer>
+
+  </div>
+</body>
+</html>
