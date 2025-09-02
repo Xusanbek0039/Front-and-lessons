@@ -1,133 +1,102 @@
-<!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML Asoslari - Kurs Darslari</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mening Blogim</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
-    h1 {
+
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
       text-align: center;
-      color: #333;
     }
-    .lesson {
-      background: #fff;
-      border-left: 6px solid #4CAF50;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 700px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    nav {
+      background: #555;
+      color: white;
+      padding: 10px;
+      text-align: center;
     }
-    .lesson h2 {
-      margin-top: 0;
-      color: #4CAF50;
-    }
-    .lesson p {
-      margin: 10px 0;
-    }
-    .lesson a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #2196F3;
+
+    nav a {
+      color: white;
+      margin: 0 10px;
       text-decoration: none;
     }
-    .assignment {
-      margin-top: 10px;
+
+    main {
+      display: flex;
+      margin: 20px;
+    }
+
+    article {
+      flex: 3;
+      padding: 20px;
+      background: #f4f4f4;
+      margin-right: 20px;
+    }
+
+    aside {
+      flex: 1;
+      background: #ddd;
+      padding: 20px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
       padding: 10px;
-      background: #e8f5e9;
-      border-left: 4px solid #388e3c;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Mening Shaxsiy Blogim</h1>
+    <p>Web dasturlash va hayot haqida fikrlarim</p>
+  </header>
 
-  <h1>📚 HTML Asoslari - Video Darslar</h1>
+  <nav>
+    <a href="#">Bosh sahifa</a>
+    <a href="#">Maqolalar</a>
+    <a href="#">Aloqa</a>
+  </nav>
 
-  <!-- Har bir dars uchun blok -->
-  <div class="lesson">
-    <h2>01-dars: Front-end nima? HTML va h teglari</h2>
-    <p>HTML asoslari, sarlavha teglari H1-H6 bilan ishlash, hamda front-end nima ekanligi haqida.</p>
-    <a href="#">🎥 Videoga o'tish</a>
+  <main>
+    <article>
+      <h2>Birinci Blog Post</h2>
+      <p>
+        Bu mening birinchi blog postim. Bugun HTML semantik teglar haqida gaplashamiz. 
+        Semantik teglar bizga kodni tushunarli qiladi va saytni yaxshi tuzishga yordam beradi. 
+        Masalan, <code>&lt;header&gt;</code> tegi bosh qism uchun, 
+        <code>&lt;article&gt;</code> tegi maqola uchun ishlatiladi.
+      </p>
+
+      <h2>Ikkinchi Blog Post</h2>
+      <p>
+        CSS yordamida sahifani chiroyli qilish mumkin. Misol uchun, fon rangini o‘zgartirish, 
+        bloklarni yonma-yon qilish yoki yozuvlarni markazga qo‘yish mumkin. 
+        Kelajakda biz <strong>responsive design</strong> ham o‘rganamiz.
+      </p>
+    </article>
+
     <div class="assignment">
-      <strong>Topshiriq:</strong> H1-H6 teglaridan foydalanib sahifa sarlavhalari tuzing.
-    </div>
-  </div>
+    <aside>
+      <h3>Yon menyu</h3>
+      <p>Bu joyda reklama, qo‘shimcha linklar yoki muallif haqida qisqa ma’lumot joylashadi.</p>
+    </aside>
+  </main>
 
-  <div class="lesson">
-    <h2>02-dars: Matn formatlash teglar</h2>
-    <p>p, i, a, strong, mark, em teglari yordamida matnni formatlashni o‘rganasiz.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> Har bir tegdan namunalar bilan sahifa yarating.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>03-dars: HTML Teglar va Atributlari</h2>
-    <p>HTMLda atributlar qanday ishlashi va ularning funksiyalari haqida batafsil tushuncha.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> Atributlardan foydalanib sahifangizga rasm yoki havola qo‘shing.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>04-dars: Foydali teglar va kommentariyalar</h2>
-    <p>HTMLdagi hr, pre, sub, sup, code, address va kommentariyalar bilan ishlash.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> Har bir maxsus tegni qo‘llab namunaviy sahifa yarating.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>05-dars: Style atributi</h2>
-    <p>HTMLda inline CSS orqali uslublarni qanday qo‘llashni o‘rganasiz.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> Elementlarga rang, shrift o‘zgartirish kabi uslublar qo‘shing.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>06-dars: Inline va CSS bilan ishlash</h2>
-    <p>HTML sahifasiga CSS kodini yozish va teglar bilan bog‘lash.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> 1 ta oddiy sahifani CSS bilan bezang.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>07-dars: Jadval va CSS</h2>
-    <p>HTMLda table yaratish va uni CSS orqali chiroyli ko‘rinishda ko‘rsatish.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> Dars jadvalini HTML table orqali yarating.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>08-dars: ID atributi</h2>
-    <p>ID atributi yordamida elementlarga noyob identifikatorlar berish.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> ID atributidan foydalanib CSS qo‘llang.
-    </div>
-  </div>
-
-  <div class="lesson">
-    <h2>09-dars: Classlar haqida</h2>
-    <p>HTML elementlarga umumiy uslublarni berish uchun classlardan foydalanish.</p>
-    <a href="#">🎥 Videoga o'tish</a>
-    <div class="assignment">
-      <strong>Topshiriq:</strong> 2 ta blok yaratib ularga class orqali turli uslublar bering.
-    </div>
-  </div>
-
+  <footer>
+    <p>&copy; 2025 Mening Blogim. Barcha huquqlar himoyalangan.</p>
+  </footer>
 </body>
 </html>
