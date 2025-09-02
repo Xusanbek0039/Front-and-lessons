@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <!-- Asosiy meta teglar -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO va qidiruv tizimlari uchun -->
+  <meta name="description" content="Bu sahifa meta teglar qanday ishlashini ko‘rsatadi: charset, viewport, description, keywords, author, robots va Open Graph misollari." />
+  <meta name="keywords" content="HTML, meta, charset, viewport, SEO, Open Graph, uzbek" />
+  <meta name="author" content="Janob (namuna)" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Qo'shimcha meta misollari -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Open Graph (ijtimoiy tarmoqlar uchun) -->
+  <meta property="og:title" content="Meta teglar misoli — HTML sahifa" />
+  <meta property="og:description" content="Kod bilan: qanday meta teglar qo‘yiladi va nima uchun kerak." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/meta-misol" />
+  <meta property="og:image" content="https://example.com/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meta teglar misoli — HTML sahifa" />
+  <meta name="twitter:description" content="Kod bilan: qanday meta teglar qo‘yiladi va nima uchun kerak." />
+  <meta name="twitter:image" content="https://example.com/preview.png" />
+
+  <title>Meta teglar misoli — HTML sahifa (CSSsiz)</title>
+</head>
+<body>
+  <header>
+    <h1>Meta teglar misoli</h1>
+    <p>Bu sahifa CSS ishlatmasdan, faqat HTML bilan meta teglar va sahifa tuzilishini namoyish etadi.</p>
+    <nav>
+      <ul>
+        <li><a href="#nima">Meta teg nima?</a></li>
+        <li><a href="#asosiy">Asosiy meta teglar</a></li>
+        <li><a href="#og">Open Graph & Twitter Card</a></li>
+        <li><a href="#namuna">Misol kod</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="nima">
+      <h2>Meta teg nima?</h2>
+      <p>
+        <strong>Meta teglar</strong> — bu HTML hujjatning <code>&lt;head&gt;</code> qismida joylashgan ma'lumotlar.
+        Ular brauzerlar, qidiruv tizimlari va ijtimoiy tarmoqlar uchun sahifa haqida qo'shimcha kontekst beradi.
+      </p>
+    </section>
+
+    <section id="asosiy">
+      <h2>Asosiy meta teglar</h2>
+      <ul>
+        <li><code>&lt;meta charset="utf-8"&gt;</code> — hujjat kodlashuvi (har doim qo'yilsin).</li>
+        <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> — mobil moslashuv uchun.</li>
+        <li><code>&lt;meta name="description" ...&gt;</code> — qidiruv natijalaridagi qisqacha izoh.</li>
+        <li><code>&lt;meta name="keywords" ...&gt;</code> — kalit so'zlar (zamonaviy SEOda kamroq ahamiyatli, lekin ba'zan qo'yiladi).</li>
+        <li><code>&lt;meta name="author" ...&gt;</code> — muallif haqida.</li>
+        <li><code>&lt;meta name="robots" content="index, follow"&gt;</code> — qidiruv botlariga ko‘rsatma.</li>
+      </ul>
+    </section>
+
+    <section id="og">
+      <h2>Open Graph va Twitter Card</h2>
+      <p>
+        Ijtimoiy tarmoqlarda (Facebook, Telegram, Twitter) sahifa qanday ko‘rinishini boshqarish uchun Open Graph (<code>og:</code>) va Twitter meta teglar ishlatiladi.
+      </p>
+      <p>
+        Muqova rasmi URLsi to‘g‘ri va <em>HTTPS</em> bo‘lsa yaxshi natija beradi.
+      </p>
+    </section>
+
+    <section id="namuna">
+      <h2>To‘liq misol</h2>
+      <p>Qisqacha qayta eslatma: sahifaning to‘liq HTML kodi yuqorida boshida joylashgan.</p>
+      <pre><code>&lt;!-- &lt;head&gt; ichidagi meta teglar misoli yuqorida berilgan --&gt;</code></pre>
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt va test formasi</h2>
+      <p>Agar sahifani sinovdan o‘tkazmoqchi bo‘lsangiz, oddiy forma orqali yuboring (bu yerda hech qanday server ishlatilmaydi):</p>
+
+      <form action="#" method="get">
+        <label for="name">Ismingiz:</label><br />
+        <input type="text" id="name" name="name" placeholder="Ismingizni kiriting" /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" placeholder="example@domain.uz" /><br /><br />
+
+        <label for="message">Xabar:</label><br />
+        <textarea id="message" name="message" rows="4" cols="40" placeholder="Xabar yozing..."></textarea><br /><br />
+
+        <button type="submit">Yuborish</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="yil"></span> Meta teglar misoli — Barchaga omad!</p>
+    <script>
+      // Kichik JavaScript: hozirgi yilni ko'rsatadi
+      document.getElementById('yil').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
