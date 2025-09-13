@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sodda HTML sahifa — jadval, input, label, p</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            padding: 24px;
+            background: #f7fafc
+        }
+        
+        h1 {
+            font-size: 1.4rem
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06)
+        }
+        
+        th,
+        td {
+            border: 1px solid #e6edf3;
+            padding: 10px;
+            text-align: left
+        }
+        
+        th {
+            background: #f1f6fb
+        }
+        
+        .form-row label {
+            display: inline-block;
+            min-width: 110px
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #2b6cb0;
+            background: #3182ce;
+            color: white
+        }
+        
+        p.help {
+            max-width: 700px
+        }
+        
+        .result {
+            margin-top: 12px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #e6edf3;
+            max-width: 700px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kontakt form — jadval bilan (sodda)</h1>
+    <p class="help">Quyidagi jadvalda <code>label</code>, <code>input</code> va <code>p</code> teglaridan foydalanilgan oddiy forma misoli.</p>
+
+    <form id="contactForm">
+        <table>
+            <tr>
+                <th>Maydon</th>
+                <th>Kiriting</th>
+            </tr>
+            <tr class="form-row">
+                <td><label for="name">Ism</label></td>
+                <td><input id="name" name="name" type="text" placeholder="Ismingizni yozing" required></td>
+            </tr>
+            <tr class="form-row">
+                <td><label for="email">Email</label></td>
+                <td><input id="email" name="email" type="email" placeholder="name@example.com" required></td>
+            </tr>
+            <tr class="form-row">
+                <td><label for="age">Yosh</label></td>
+                <td><input id="age" name="age" type="number" min="1" max="120" placeholder="Yoshingiz"></td>
+            </tr>
+            <tr class="form-row">
+                <td><label for="message">Xabar</label></td>
+                <td><input id="message" name="message" type="text" placeholder="Qisqacha xabar"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn" type="submit">Yuborish</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <p class="help">Pastdagi quti forma yuborilgandan so'ng kiritilgan qiymatlarni ko'rsatadi (bu faqat demo):</p>
+    <div id="output" class="result" aria-live="polite">Hozircha hech nima yuborilmadi.</div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            const name = data.get('name') || '[ismi yo\'q]';
+            const email = data.get('email') || '[email yo\'q]';
+            const age = data.get('age') || '[yosh yo\'q]';
+            const message = data.get('message') || '[xabar yo\'q]';
+
+            output.innerHTML = `
+        <p><strong>Ism:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Yosh:</strong> ${escapeHtml(age)}</p>
+        <p><strong>Xabar:</strong> ${escapeHtml(message)}</p>
+      `;
+        });
+
+        // Juda oddiy escaping — real loyihada kutubxona ishlating
+        function escapeHtml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+
+</body>
+
+</html>
