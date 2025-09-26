@@ -1,131 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uz">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Sodda HTML sahifa — jadval, input, label, p</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Darslar</title>
     <style>
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-            padding: 24px;
-            background: #f7fafc
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
         }
         
-        h1 {
-            font-size: 1.4rem
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
         }
         
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 700px;
-            background: #fff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06)
+        .lesson {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
         }
         
-        th,
-        td {
-            border: 1px solid #e6edf3;
+        .code {
+            background: #333;
+            color: #fff;
             padding: 10px;
-            text-align: left
-        }
-        
-        th {
-            background: #f1f6fb
-        }
-        
-        .form-row label {
-            display: inline-block;
-            min-width: 110px
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 8px 12px;
-            margin-top: 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            border: 1px solid #2b6cb0;
-            background: #3182ce;
-            color: white
-        }
-        
-        p.help {
-            max-width: 700px
-        }
-        
-        .result {
-            margin-top: 12px;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #e6edf3;
-            max-width: 700px
+            display: block;
+            margin: 10px 0;
+            border-radius: 5px;
+            white-space: pre;
         }
     </style>
 </head>
 
 <body>
-    <h1>Kontakt form — jadval bilan (sodda)</h1>
-    <p class="help">Quyidagi jadvalda <code>label</code>, <code>input</code> va <code>p</code> teglaridan foydalanilgan oddiy forma misoli.</p>
 
-    <form id="contactForm">
-        <table>
-            <tr>
-                <th>Maydon</th>
-                <th>Kiriting</th>
-            </tr>
-            <tr class="form-row">
-                <td><label for="name">Ism</label></td>
-                <td><input id="name" name="name" type="text" placeholder="Ismingizni yozing" required></td>
-            </tr>
-            <tr class="form-row">
-                <td><label for="email">Email</label></td>
-                <td><input id="email" name="email" type="email" placeholder="name@example.com" required></td>
-            </tr>
-            <tr class="form-row">
-                <td><label for="age">Yosh</label></td>
-                <td><input id="age" name="age" type="number" min="1" max="120" placeholder="Yoshingiz"></td>
-            </tr>
-            <tr class="form-row">
-                <td><label for="message">Xabar</label></td>
-                <td><input id="message" name="message" type="text" placeholder="Qisqacha xabar"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><button class="btn" type="submit">Yuborish</button></td>
-            </tr>
-        </table>
-    </form>
+    <h1>HTML Darslar</h1>
+    <p>Quyidagi sahifa orqali HTML asoslarini o‘rganishingiz mumkin. Har bir dars uchun kichik nazariy qism va kod namunasi keltirilgan.</p>
 
-    <p class="help">Pastdagi quti forma yuborilgandan so'ng kiritilgan qiymatlarni ko'rsatadi (bu faqat demo):</p>
-    <div id="output" class="result" aria-live="polite">Hozircha hech nima yuborilmadi.</div>
+    <div class="lesson">
+        <h2>1-dars: Front-end nima? HTML va H1-H6 sarlavhalari</h2>
+        <p>Front-end bu veb-sahifaning foydalanuvchi ko‘radigan qismi. HTML esa sahifa tuzilmasini yaratadi.</p>
+        <p>Sarlavhalar H1-H6 teglarida yoziladi:</p>
+        <div class="code">
+            &lt;h1>Bu H1&lt;/h1> &lt;h2>Bu H2&lt;/h2> &lt;h3>Bu H3&lt;/h3>
+        </div>
+    </div>
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const output = document.getElementById('output');
+    <div class="lesson">
+        <h2>2-dars: Matn formatlash teglar</h2>
+        <p>Matnni turli uslubda yozish uchun:</p>
+        <div class="code">
+            &lt;p>Oddiy matn&lt;/p> &lt;i>Qiya matn&lt;/i> &lt;strong>Qalin matn&lt;/strong> &lt;mark>Ajratilgan matn&lt;/mark>
+        </div>
+    </div>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const data = new FormData(form);
-            const name = data.get('name') || '[ismi yo\'q]';
-            const email = data.get('email') || '[email yo\'q]';
-            const age = data.get('age') || '[yosh yo\'q]';
-            const message = data.get('message') || '[xabar yo\'q]';
+    <div class="lesson">
+        <h2>3-dars: HTML Teglar va Atributlar</h2>
+        <p>Atributlar tegga qo‘shimcha ma’lumot beradi. Masalan, <code>title</code> atributi matnga izoh qo‘shadi.</p>
+        <div class="code">
+            &lt;p title="Bu izoh">Sichqoncha olib keling&lt;/p>
+        </div>
+    </div>
 
-            output.innerHTML = `
-        <p><strong>Ism:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Yosh:</strong> ${escapeHtml(age)}</p>
-        <p><strong>Xabar:</strong> ${escapeHtml(message)}</p>
-      `;
-        });
+    <div class="lesson">
+        <h2>4-dars: Foydali Teglar va Kommentariyalar</h2>
+        <p>Komentariya qo‘shish: <code>&lt;!-- bu komment --&gt;</code></p>
+        <div class="code">
+            &lt;hr>
+            <!-- Gorizontal chiziq -->
+            &lt;pre>Formatlangan matn&lt;/pre>
+        </div>
+    </div>
 
-        // Juda oddiy escaping — real loyihada kutubxona ishlating
-        function escapeHtml(s) {
-            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        }
-    </script>
+    <div class="lesson">
+        <h2>5-6-dars: Style atributi va Inline CSS</h2>
+        <p>Style orqali matnga rang, fon va boshqa xususiyatlar beriladi:</p>
+        <div class="code">
+            &lt;p style="color:red;">Qizil matn&lt;/p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>7-dars: HTML Jadval (Table)</h2>
+        <div class="code">
+            &lt;table border="1"> &lt;tr>&lt;th>Ism&lt;/th>&lt;th>Yosh&lt;/th>&lt;/tr> &lt;tr>&lt;td>Ali&lt;/td>&lt;td>20&lt;/td>&lt;/tr> &lt;/table>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>8-9-dars: ID va Class atributlari</h2>
+        <div class="code">
+            &lt;p id="birinchi">Bu ID bilan&lt;/p> &lt;p class="matn">Bu class bilan&lt;/p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>10-11-dars: Block va Inline elementlar, Div va Span</h2>
+        <div class="code">
+            &lt;div>Bu block&lt;/div> &lt;span>Bu inline&lt;/span>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>12-dars: Form elementlari</h2>
+        <div class="code">
+            &lt;form> &lt;label>Ism:&lt;/label> &lt;input type="text"> &lt;input type="submit" value="Yuborish"> &lt;/form>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>14-dars: Meta tegi</h2>
+        <div class="code">
+            &lt;meta charset="UTF-8">
+        </div>
+    </div>
+
+    <div class="lesson">
+        <h2>15-dars: Video va Audio</h2>
+        <div class="code">
+            &lt;video controls width="250"> &lt;source src="video.mp4" type="video/mp4"> &lt;/video>
+        </div>
+    </div>
 
 </body>
 
