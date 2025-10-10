@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oddiy Landing — HTML kursi uchun</title>
+  <!--
+    Ushbu fayl: yagona HTML sahifa (beginner friendly)
+    Maqsad: 3 oydan beri HTML o'rgangan talabalar uchun amaliy mashq
+    Ichida: semantik teglar, strukturaviy CSS, form, listlar, surat va linklar
+  -->
+  <style>
+    /* Asosiy reset va tipografiya */
+    :root{
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --accent: #2563eb; /* ko'k */
+      --muted: #6b7280;
+      --radius: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111;line-height:1.5}
+    .container{max-width:960px;margin:28px auto;padding:18px}
+
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    header .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:54px;height:54px;background:linear-gradient(135deg,#60a5fa,#3b82f6);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:12px;text-decoration:none;color:var(--muted)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .hero h1{margin:0 0 10px 0;font-size:28px}
+    .hero p{margin:0 0 14px;color:var(--muted)}
+    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;text-decoration:none}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .feature h3{margin:0 0 6px 0;font-size:16px}
+
+    /* Form */
+    form label{display:block;font-weight:600;margin-top:10px}
+    input[type=text],input[type=email],textarea{width:100%;padding:8px;margin-top:6px;border:1px solid #e5e7eb;border-radius:8px}
+    button{margin-top:10px;padding:10px 14px;border-radius:10px;border:none;background:var(--accent);color:white}
+
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:700px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    /* Oddiy sinov uchun klass */
+    .exercise{background:linear-gradient(90deg,#fff,#f1f5f9);border-left:4px solid var(--accent);padding:10px;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">JL</div>
+        <div>
+          <div style="font-weight:700">HTML amaliyot</div>
+          <div style="font-size:12px;color:var(--muted)">3 oy o'rgangan talabalar uchun</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Haqida</a>
+        <a href="#services">Xizmatlar</a>
+        <a href="#contact">Bog'lanish</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="card">
+          <h1>Oddiy, toza va semantik landing</h1>
+          <p>Ushbu sahifa sizga HTMLning asosiy elementlarini — <strong>header, nav, section, article, form</strong> va <strong>footer</strong>ni amalda ishlatishni o'rgatadi.</p>
+          <a class="cta" href="#contact">Hozir bog'laning</a>
+
+          <div class="exercise">
+            <strong>Vazifa 1:</strong> <br>
+            H1 matnini o'zgartiring, CTA rangini CSSda topib boshqa rangga almashtiring.
+          </div>
+        </div>
+
+        <aside class="card" aria-labelledby="aside-title">
+          <h2 id="aside-title">Tez ma'lumot</h2>
+          <ul>
+            <li>Semantik teglar: &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;</li>
+            <li>Form elementlari: &lt;input&gt;, &lt;textarea&gt;, &lt;button&gt;</li>
+            <li>Responsivlik: @media so'rovlari</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="services" class="features">
+        <article class="card feature">
+          <h3>HTML strukturasi</h3>
+          <p class="muted">Elementlarni semantik joylashtirishni amalda ko'ring.</p>
+        </article>
+        <article class="card feature">
+          <h3>Form va inputlar</h3>
+          <p class="muted">Foydalanuvchi ma'lumotlarini qanday qabul qilishni mashq qiling.</p>
+        </article>
+        <article class="card feature">
+          <h3>CSS asoslari</h3>
+          <p class="muted">Ranglar, radius, box-shadow va grid/flex misollari.</p>
+        </article>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="card" style="margin-top:18px">
+        <h2>Qisqacha: nima uchun bu mashq?</h2>
+        <p>Bu mashq HTMLni real sahifaga joylash, struktura ishlab chiqish, va oddiy responsiv dizayn qilishni o'rgatadi. Har bir bo'lim taglari bilan belgilanadi — bu amaliyot ishlab chiquvchilar uchun juda muhim.</p>
+
+        <div class="exercise">
+          <strong>Vazifa 2:</strong><br>
+          <ol>
+            <li>Nav menyuga yangi link qo'shing (masalan: "Portfolio")</li>
+            <li>Features bo'limiga bitta element qo'shing — o'zingizning xizmatingiz nomi bilan</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM -->
+      <section id="contact" class="card" style="margin-top:18px">
+        <h2>Bog'lanish</h2>
+        <p>Sahifadagi formni to'ldiring (bu faqat frontend — server qismi yo'q):</p>
+        <form action="#" method="post" onsubmit="alert('Form yuborildi (frontend demo).'); return false;">
+          <label for="name">Ismingiz</label>
+          <input id="name" name="name" type="text" placeholder="Ismingizni kiriting" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="email@misol.com" required>
+
+          <label for="message">Xabar</label>
+          <textarea id="message" name="message" rows="4" placeholder="Nima yordam bera olaman?"></textarea>
+
+          <button type="submit">Yuborish</button>
+        </form>
+
+        <div class="exercise">
+          <strong>Vazifa 3:</strong><br>
+          Form yuborilganda konsolga yuborilgan ma'lumotlarni chiqartirish uchun JavaScript qo'shing (shu fayl ichida kaenka kichik &lt;script&gt; tag ishlating).
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="card" style="margin-top:18px">
+      <p>&copy; 2025 HTML Amaliyot — O'quvchilarga mo'ljallangan sahifa.</p>
+      <p style="font-size:13px;color:var(--muted)">Maslahat: faylni "index.html" nomi bilan saqlang va brauzerda oching.</p>
+    </footer>
+  </div>
+
+  <!-- Kichik yordamchi script (o'quvchilar uchun) -->
+  <script>
+    // Maslahat: quyidagi kod form submit vazifasini real backend bo'lmasa ham sinashga yordam beradi.
+    document.querySelector('form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+      };
+      console.log('Yuborilgan ma\u0027lumot:', data);
+      alert('Rahmat, ' + (data.name || 'Do'st') + '! (console.logga qarang)');
+    });
+  </script>
+</body>
+</html>
